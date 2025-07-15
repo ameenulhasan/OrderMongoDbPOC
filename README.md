@@ -55,40 +55,58 @@ Make sure MongoDB is running locally or provide URI:
 spring.data.mongodb.uri=mongodb://localhost:27017/order-db
 
 📦 Sample API Endpoints
-➕ Create Order
-POST /orders
 
-json
-Copy
-Edit
+➕ Create Order
+POST /createFoodPrice
 {
-  "customerName": "Ameen",
-  "product": "Laptop",
-  "quantity": 2,
-  "price": 55000
+    "hotelId": "67d2a56a41007c5a2f50d935",
+    "foods": [
+        "67d013d10915b21bd490635f",
+        "67d0162b0915b21bd4906360"
+    ],
+    "price": [
+        "320",
+        "270"
+    ]
 }
 
-📄 Get All Orders
-GET /orders
+➕ Make Order
+POST /makeOrder
+{
+    "hotelFoodId": [
+        "6836e71d43479f63782d5033",
+        "6836e71d43479f63782d5034"
+    ],
+    "quantity": [ 
+        2,1
+    ],
+    "userId": "67cfe02452ece904cfb71236"
+}
 
-🔍 Get Order by ID
-GET /orders/{id}
+🔍 Get All Orders
+GET /getAllOrders
 
-📝 Update Order
-PUT /orders/{id}
+🔍 Get Order by User
+GET /getByOrderUser
+
+📝 Create Food
+POST /createFood
+{
+   "id": null,
+   "foodName":"Briyani"
+}
 
 ❌ Delete Order
-DELETE /orders/{id}
+DELETE /deleteOrderId
 
 ▶️ Running the App
     1.Clone the repo
     2.Start MongoDB locally (or configure URI)
     3.Run the application:
         ./mvnw spring-boot:run
-    4.Test API using Postman, Swagger UI, or any REST client
+    4.Test API using Postman
 
 📫 Contact
-
 Maintained by Ameenul Hasan – feel free to reach out for collaboration or feedback.
 
 ---
